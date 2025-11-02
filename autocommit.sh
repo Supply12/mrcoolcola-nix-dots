@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+cd ~/nixos-config
 git add .
 git commit -m "$(date +%d.%m.%y) at $(date +%t)"
 git branch -M main
