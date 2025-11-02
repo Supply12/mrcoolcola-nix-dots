@@ -1,0 +1,17 @@
+{ config, pkgs, ... }:
+
+
+{
+  environment.systemPackages = with pkgs; [
+    (vscode-with-extensions.override {
+      vscode = vscodium;
+      vscodeExtensions = with vscode-extensions; [
+        bbenoist.nix
+        ms-python.python
+        ms-azuretools.vscode-docker
+        ms-vscode-remote.remote-ssh
+        ritwickdey.liveserver
+      ];
+    })
+  ];
+}
