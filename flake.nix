@@ -2,17 +2,8 @@
   inputs = {
     # The channel of nixpkgs
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
-    # Mc launcher
-    fjordlauncher = {
-      url = "github:unmojang/FjordLauncher";
-
-      # Optional: Override the nixpkgs input of fjordlauncher to use the same revision as the rest of your flake
-      # Note that this may break the reproducibility mentioned above, and you might not be able to access the binary cache
-      #
-      # inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
-  outputs = inputs@{ self, nixpkgs, fjordlauncher, ... }: {
+  outputs = inputs@{ self, nixpkgs, ... }: {
     nixosConfigurations.nix-desktop = nixpkgs.lib.nixosSystem {
       # NOTE: Change this to aarch64-linux if you are on ARM
       system = "x86_64-linux";
@@ -28,13 +19,6 @@
         ./modules/bebronix-branding.nix
         ./modules/invisible-networking.nix
         ./modules/vscodium.nix
-
-        (
-          { pkgs, ... }:
-          {
-            environment.systemPackages = [ fjordlauncher.packages.${pkgs.system}.fjordlauncher ];
-          }
-        )
       ];
       # pizdec nechitaemo
     };
