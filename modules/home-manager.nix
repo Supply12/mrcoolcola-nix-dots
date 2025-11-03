@@ -121,6 +121,7 @@ in
     home.file.".config/fastfetch".source = "/home/${username}/nixos-config/dots/fastfetch";
     home.file.".config/polybar/config.ini".source = "/home/${username}/nixos-config/dots/polybar-cfg.ini";
     home.file.".config/wireplumber".source = "/home/${username}/nixos-config/dots/wireplumber";
+    home.file.".config/rofi".source = "/home/${username}/nixos-config/dots/rofi";
     home.file.".ssh".source = "/home/${username}/nixos-config/dots/ssh";
 
     programs.librewolf = {

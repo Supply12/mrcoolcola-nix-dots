@@ -1,0 +1,11 @@
+configuration{
+ font: "Gohu Font 11 Nerd Font 23";
+ fixed-num-lines: true;
+ show-icons: false;
+ icon-theme: "Papirus";
+ eh: 1;
+ dpi: 50;
+ display-drun: "Apps";
+}
+
+@theme "~/.config/rofi/launcher_theme.rasi"
