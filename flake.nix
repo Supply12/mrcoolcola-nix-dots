@@ -2,12 +2,15 @@
   inputs = {
     # The channel of nixpkgs
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
+    # Добавляем nixos-pince
+    nixos-pince.url = "github:BreakingBread0/nixos-pince";
   };
-  outputs = inputs@{ self, nixpkgs, ... }: {
+
+  outputs = inputs@{ self, nixpkgs, nixos-pince, ... }: {
     nixosConfigurations.nix-desktop = nixpkgs.lib.nixosSystem {
-      # NOTE: Change this to aarch64-linux if you are on ARM
       system = "x86_64-linux";
-      # Modules (nix configs) and fjord launcher
+      # Передаём все inputs в модули через specialArgs
+      specialArgs = { inherit inputs; };
       modules = [
         ./modules/configuration.nix
         ./modules/hardware-configuration.nix
@@ -20,7 +23,6 @@
         ./modules/invisible-networking.nix
         ./modules/vscodium.nix
       ];
-      # pizdec nechitaemo
     };
   };
 }
