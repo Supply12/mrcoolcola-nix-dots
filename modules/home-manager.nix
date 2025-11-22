@@ -40,7 +40,7 @@ in
     home.file.".local/share/applications/vesktop.desktop".text = ''
       [Desktop Entry]
       Categories=Network;InstantMessaging;Chat
-      Exec=env http_proxy=socks5://192.168.0.20:1080 https_proxy=socks5://192.168.0.20:1080 vesktop --proxy-server="socks5://192.168.0.20:1080"
+      Exec=env http_proxy=socks5://192.168.0.25:1080 https_proxy=socks5://192.168.0.25:1080 vesktop --proxy-server="socks5://192.168.0.25:1080"
       GenericName=Internet Messenger
       Icon=vesktop
       Keywords=discord;vencord;electron;chat
